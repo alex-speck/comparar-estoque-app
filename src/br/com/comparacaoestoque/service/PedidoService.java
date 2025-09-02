@@ -2,10 +2,12 @@ package br.com.comparacaoestoque.service;
 
 import br.com.comparacaoestoque.model.Pedido;
 import br.com.comparacaoestoque.model.PedidoItem;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +25,7 @@ public class PedidoService {
         Map<BigInteger, Pedido> pedidoMap = new HashMap<>();
 
         try (FileInputStream fis = new FileInputStream(new File(arquivo));
-             Workbook workbook = new HSSFWorkbook(fis)) {
+             Workbook workbook = new XSSFWorkbook(fis)) {
             Sheet sheet = workbook.getSheetAt(0);
             DataFormatter formatter = new DataFormatter();
 
@@ -56,5 +58,6 @@ public class PedidoService {
 
         return new ArrayList<>(pedidoMap.values());
     }
+
 
 }

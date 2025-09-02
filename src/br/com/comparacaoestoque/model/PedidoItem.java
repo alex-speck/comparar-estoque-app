@@ -26,7 +26,7 @@ public class PedidoItem {
         return quantidadeItem;
     }
 
-    public void setQuantidadeItem(int quantidadeItem) {
+    public void setQuantidadeItem(double quantidadeItem) {
         this.quantidadeItem = quantidadeItem;
     }
 
